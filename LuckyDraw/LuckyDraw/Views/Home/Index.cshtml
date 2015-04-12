@@ -1,0 +1,235 @@
+﻿@model LuckyDraw.Models.HomeViewModel
+@{
+    ViewBag.Title = "韩熙";
+}
+
+<div class="content-block firstblock">
+    <div class="content-block-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="videoMedia">
+                    <video id="vShow" src="@Model.VideoSrc"></video>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="ActivityInfo">
+                    <div class="title">
+                        <h2>周海媚2015全新EP 《她》</h2>
+                        <h2>全球首唱会/粉丝见面会</h2>
+                    </div>
+                    <p>主&nbsp;&nbsp;办&nbsp;&nbsp;方: 周海媚工作室</p>
+                    <p>时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;间: 2015年4月18日 下午2：00</p>
+                    <p>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;点: 上海星美影城(正大广场8层)</p>
+                    <p>特别鸣谢: 韩熙品牌事业部<img src="~/Content/Images/Logo.png" /></p>
+                    <p>广州天博文化传播有限公司</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="content-block">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="content-block-head">
+                <span>魔法轮盘</span>
+            </div>
+        </div>
+    </div>
+    <div class="content-block-body">
+        <div class="row">
+            <div class="col-md-5" >
+                @Html.Partial("_DrawRoulette")
+            </div>
+            <div class="col-md-7">
+                <div class="PrizeList">
+                    <div class="col-md-9 col-sm-9 col-xs-12 pl-left ">
+                        <ul>
+                            <li>
+                                <span class="name">一等奖：</span>
+                                <span class="detail">女神见面会幸运门票 共计10张</span>
+                            </li>
+                            <li>
+                                <span class="name">二等奖：</span>
+                                <span class="detail">美丽膜方 (韩熙极效PET超导面膜) 共计50盒</span>
+                            </li>
+                            <li>
+                                <span class="name">三等奖：</span>
+                                <span class="detail">冻龄秘笈 (韩熙海茴香干细胞水乳套装) 共计100套</span>
+                            </li>
+                            <li>
+                                <span class="name">四等奖：</span>
+                                <span class="detail">洁面神器 (韩熙氨基酸洗颜去角质慕斯) 共计150瓶</span>
+                            </li>
+                            <li>
+                                <span class="name">五等奖：</span>
+                                <span class="detail">美丽约惠 (韩熙旗舰店代金券50元) 共计500张</span>
+                            </li>
+                            <li>
+                                <span class="name">六等奖：</span>
+                                <span class="detail">美丽约惠 (韩熙旗舰店代金券20元) 共计1000张</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-12 pl-right">
+                        <img src="~/Content/Images/r100.png" />
+                    </div>
+                </div>
+                <div class="Rules clearfix">
+                    <h3>活动规则：</h3>
+                    <ul>
+                        <li>1.抽奖时间为2015年4月13日14:00至2015年4月15日24:00；</li>
+                        <li>2.每人限一次抽奖机会；</li>
+                        <li>3.此次抽奖之旅最终解释权归广州市泊美化妆品有限公司所有；</li>
+                    </ul>
+                </div>
+                <div class="Rules clearfix">
+                    <h3>领奖须知：</h3>
+                    <ul>
+                        <li>1.寻宝成功的宝贝将于活动截止日期后统一有专人联系安排派送，请保持联系方式畅通；</li>
+                        <li>2.请填写真实收货地址，以便于宝贝及时送达(包邮)；</li>
+                        <li>3.如有不清楚、不明确、不相信等任何疑问，请致电4008-440-500(韩熙品牌营销中心)；</li>
+                    </ul>
+                </div>
+                <div class="PrizeInfo listbox">
+                    <div class="Info_Body" id="listbox">
+                        <ul id="userlist">
+                            @{Html.RenderAction("DrawResult", new { num = 10 });}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </div>
+</div>
+
+<div class="content-block">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="content-block-head">
+                <span>邂逅女神</span>
+            </div>
+        </div>
+    </div>
+    <div class="content-block-body">
+        <div class="row">
+            <div class="Godness">
+                <img src="~/Content/Images/Godness.png" />
+                <div class="intro">
+                    <p>周海媚，入行三十年，成功演绎了无数的经典角色……纵览她三十年以来的影视剧照，令人惊叹的是在她的身上，我们几乎看不到时间的痕迹，她的脸蛋和身材一直保持着25岁时的青春美丽。她身上有着怎样的“魔力”？韩熙带你近距离接触女神，听她分享自己的美丽故事。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content-block">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="content-block-head">
+                <span>变美秘笈</span>
+            </div>
+        </div>
+    </div>
+    <div class="content-block-body">
+        <div class="BeautiChat">
+            <div class="row">
+                <div class="step1">
+                    <div class="col-md-offset-1 col-md-5">
+                        <img class="title_img" src="~/Content/Images/Step1_Title.png" />
+                    </div>
+                    <div class="col-md-10 step_text">
+                        <img class="pic_img" src="~/Content/Images/Step1_lg.png" />
+                        <p>
+                            韩熙氨基酸洗颜去角质慕斯，采用特殊真空的安雅设计，轻轻一按可挤出丰富浓密的细腻泡沫，植物氨基酸天然配方，保护肌肤酸碱平衡；附带韩国进口的有机硅胶洁面刷，洁面时配合洁面刷按摩脸部，能深入毛孔内部，请走彩妆、污垢、油腻，洁面卸妆一步完成。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="step2">
+                    <div class="col-md-offset-5 col-md-5">
+                        <img class="title_img" src="~/Content/Images/Step2_Title.png" />
+                    </div>
+                    <div class="col-md-10 step_text">
+                        <img class="pic_img" src="~/Content/Images/Step2_lg.png" />
+                        <p>
+                            韩熙海茴香干细胞水乳套装富含海茴香干细胞、活性肽、海藻类萃取液、酵母发酵液、深海活泉水等多重奢华精华成分，展现绝佳的活力滋养，给予肌肤高滋养、高渗透、高保湿的水润护理，焕发肌肤青春活力。
+                        </p>
+                    </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 step3">
+                    <div class="clearfix">
+                        <div class="col-md-offset-1 col-md-5">
+                            <img class="title_img" src="~/Content/Images/Step3_Title.png" />
+                        </div>
+                        <div class="col-md-10 step_text">
+                            <img class="pic_img" src="~/Content/Images/Step3.png" />
+                            韩熙极致PET超导面膜它是一款创新型面膜，由PET薄膜与丝质纤维膜经高科技热融合技术复合而成，具有极佳的吸收度、保湿度、亲肤性及超强的导入性等特征。它的内层薄巾有别于传统面膜的3D立体纤维结构具有高度保水吸收力，能将精华完全锁住；而外层PET薄膜的特殊材质及上面的许多细小气孔，让面膜具有透气不透水的特性，可与有效隔绝空气反吸、防止精华液蒸发，并能利用大气负压原理增加面膜附着力和传导作用，让精华液加倍渗透和吸收。一体式多重结构及特殊材质，让面膜既轻薄透气、没有厚重感，又韧性十足，不易撕烂，所以在使用时更容易打开，使用更方便。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+    <script src="~/Scripts/jquery.easing.min.js"></script>
+    <script src="~/Scripts/jQueryRotate.2.2.js"></script>
+    <script src="~/Scripts/jqyery.scroller.js"></script>
+
+    <script type="text/javascript">
+
+        function init_Scroll() {
+            GetPrizeInfo();
+            var scrollPics = new scrollVertical('listbox', 'userlist');
+            scrollPics.speed = 10; /* 调节speed值可以改变滚动间隙 */
+            scrollPics.isPause = true;
+
+            var timer_start = setTimeout(function () { clearTimeout(timer_start); scrollPics.isPause = false; }, 1000);
+
+            Event.addEvent(scrollPics.scrollArea, "mouseover", function () { scrollPics.isPause = true; });
+            Event.addEvent(scrollPics.scrollArea, "mouseout", function () { scrollPics.isPause = false; });
+        }
+
+        Event.addEvent(window, 'load', init_Scroll);
+
+
+        $(function () {
+            var timeOut = function () {  //超时函数
+                $("#lotteryBtn").rotate({
+                    angle: 0,
+                    duration: 10000,
+                    animateTo: 2160,
+                    callback: function () {
+                        alert('亲！没有中奖哦！！')
+                    }
+                });
+            };
+
+            $("#lotteryBtn").rotate({
+                bind:
+                  {
+                      click: function () {
+                          $('#memberForm').fadeIn();
+                      }
+                  }
+            });
+
+            setInterval('GetPrizeInfo', 300000);
+
+        })
+
+        function GetPrizeInfo(){
+            $.post('@Url.Action("DrawResult")', { num: 10 },
+                function (data) {
+                    $('#userlist').append(data);
+                });
+        }
+    </script>
+}
+

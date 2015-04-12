@@ -1,0 +1,22 @@
+﻿
+<div style="float:left; width:120px;"><img src="~/Content/Images/sad.png"></div>
+<div style="float:right; width:320px;">
+    <h1 style="font-family:'微软雅黑'; font-size:1.8em; color:#f00; margin-bottom:5px;margin-top:0px;">很遗憾，没有中奖</h1>
+    <p>感谢您的参与。</p>
+    <p>若有任何疑问，欢迎致电咨询我们客服:XXX-XXXXXX</p>
+    <p style="margin-top:15px;">
+        <a href="javascript:void(0);" id="btnReceive" class="btn btn-danger btn-default btn-lg">
+            <span style="font-size:larger;font-weight:bolder">确定</span>
+        </a>
+        <script>
+            $(function () {
+                $('#btnReceive').on('click', function (e) {
+                    e.preventDefault();
+
+                    $('#resultBox').fadeOut();
+                })
+            })
+        </script>
+    </p>
+</div>
+

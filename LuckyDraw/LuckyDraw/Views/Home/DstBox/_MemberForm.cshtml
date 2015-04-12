@@ -1,0 +1,59 @@
+﻿
+<div id="memberForm" class="dst dst-sm">
+    <form name="memberForm" method="Post" class="form-horizontal">
+        <div class="form-group row">
+            <label for="txtMobie" class="col-md-12">请先输入手机号码，方便领奖通知：</label>
+            <div class="col-md-12 text-center">
+                <input id="txtMobile" class="form-control" placeholder="手机号码" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-12 text-center">
+                <button id="btnDraw" type="button" class="btn btn-default btn-warning btn-lg">
+                    <span style="font-size:larger;font-weight:bolder">OK, 开始抽奖</span>
+                </button>
+            </div>
+        </div>
+    </form>
+    <script>
+        $('#btnDraw').on('click', function (e) {
+            if ($('#txtMobile').val() == '') {
+                alert('请输入手机号码！');
+                return false;
+            }
+            if (!/^([0-9]{11})$/.test($('#txtMobile').val())) {
+                alert('输入的手机号码格式不正确，请修正后再抽奖。');
+                return false;
+            }
+            $.getJSON('@Url.Action("Draw")',
+                { Mobile: $('#txtMobile').val() },
+                function (data) {
+                    if (data.result) {
+                        $('#memberForm').fadeOut();
+                        //$('#ticket').val(data.ticket);
+                        console.info(data.ticket);
+                        rotateFunc(data.ticket, data.prize.Angle);
+                    }
+                    else {
+                        alert(data.msg);
+                        return false;
+                    }
+                })
+        });
+        var rotateFunc = function (ticket, angle) {  //awards:奖项，angle:奖项对应的角度
+            $('#lotteryBtn').stopRotate();
+            $("#lotteryBtn").rotate({
+                angle: 0,
+                duration: 5000,
+                animateTo: angle + 1440, //angle是图片上各奖项对应的角度，1440是我要让指针旋转4圈。所以最后的结束的角度就是这样子^^
+                callback: function () {
+                    $.get('@Url.Action("PrizeView")', { ticket: ticket },
+                        function (view) {
+                            $("#resultBox").html(view);
+                            $("#resultBox").show();
+                        });
+                }
+            });
+        };
+    </script>
+</div>

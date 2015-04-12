@@ -1,0 +1,28 @@
+﻿@model LuckyDraw.Models.Prize
+
+<form id="_Form_Prize" method="post">
+    @Html.HiddenFor(x => x.Id)
+    <div class="form-group">
+        <label for="Name">奖项</label>
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="Name">奖品</label>
+        @Html.TextBoxFor(x => x.Detail, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="Name">数量</label>
+        @Html.TextBoxFor(x => x.Count, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="Name">概率</label>
+        @Html.TextBoxFor(x => x.Percent, new { @class = "form-control" })
+        <div class="form-group">
+            <label for="Name">图片</label>
+            <input type="file" name="ImgPath" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.ValidationSummary(true)
+    </div>
+</form>

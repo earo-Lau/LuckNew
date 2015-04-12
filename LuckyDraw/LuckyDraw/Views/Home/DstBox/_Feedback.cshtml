@@ -1,0 +1,20 @@
+﻿
+<div id="feedbackBox" class="dst dst-sm">
+    <h1 style="font-family:'微软雅黑'; font-size:1.8em; color:#f00; margin-bottom:5px;margin-top:0px;">领奖成功！</h1>
+    <p>感谢您的参与，请稍后留意快递信息。</p>
+    <p>若有任何疑问，欢迎致电咨询我们客服:4008-440-500(韩熙品牌营销中心)</p>
+    <div>
+        <button id="btnClose" type="button" class="btn btn-default btn-warning btn-lg">
+            <span style="font-size:larger;font-weight:bolder">确定</span>
+        </button>
+        <script>
+            $(function () {
+                $('#btnClose').on('click', function (e) {
+                    e.preventDefault();
+
+                    $('#feedbackBox').fadeOut();
+                })
+            })
+        </script>
+    </div>
+</div>

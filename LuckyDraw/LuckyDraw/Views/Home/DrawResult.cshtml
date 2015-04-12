@@ -1,0 +1,6 @@
+﻿@model LuckyDraw.Models.DrawResultModel[]
+
+            @foreach (var i in Model)
+            {
+                <li><span class="phone">@i.Member.Mobile</span>成功领取<span class="prize">@i.Prize.Detail</span>一张</li>
+            }

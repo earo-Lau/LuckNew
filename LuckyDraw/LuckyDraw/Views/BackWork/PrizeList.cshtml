@@ -1,0 +1,169 @@
+﻿@model List<LuckyDraw.Models.Prize>
+@{
+    this.Layout = "~/Views/Shared/_DashBroadLayout.cshtml";
+}
+
+<div class="templatemo-content">
+    <h1>奖品列表</h1>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <h4 class="margin-bottom-15">New Users Table</h4>
+                <table class="table table-striped table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>奖项</th>
+                            <th>奖品</th>
+                            <th>数量</th>
+                            <th>概率</th>
+                            <th>角度</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @item.Id
+                                </td>
+                                <td>
+                                    <label class="label label-primary">@item.Name</label>
+                                    <input type="text" id="txtName" class="form-control" value="@item.Name" />
+                                </td>
+                                <td>
+                                    <label class="label label-primary">@item.Detail</label>
+                                    <input type="text" id="txtDetail" class="form-control" value="@item.Detail" />
+                                </td>
+                                <td>
+                                    <label class="label label-primary">@item.Count</label>
+                                    <input type="text" id="txtCount" class="form-control" value="@item.Count" />
+                                </td>
+                                <td>
+                                    <label class="label label-primary">@item.Percent</label>
+                                    <input type="text" id="txtPercent" class="form-control" value="@item.Percent" />
+                                </td>
+                                <td>
+                                    <label class="label label-primary">@item.Angle</label>
+                                    <input type="text" id="txtAngle" class="form-control" value="@item.Angle" />
+                                </td>
+                                <td>
+                                    <div class="_Div_dataEdit">
+                                        <a href="javascript:void(0);" class="dataEdit">
+                                            <span class="glyphicon glyphicon-edit"></span>
+                                        </a>
+                                        <a href="@Url.Action("DeletePrize", new { id = i.Id })" class="dataRemove">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </a>
+                                    </div>
+                                    <div class="_Div_dataOK">
+                                        <a href="javascript:void(0);" class="dataOk" data-pid="@item.Id">
+                                            >
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        </a>
+                                        <a href="javascript:void(0);" class="dataUndo">
+                                            <span class="glyphicon glyphicon-remove"></span>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                        <tr>
+                            <td>
+                                #
+                            </td>
+                            <td>
+                                <input type="text" id="txtName" class="form-control" />
+                            </td>
+                            <td>
+                                <input type="text" id="txtDetail" class="form-control" />
+                            </td>
+                            <td>
+                                <input type="text" id="txtCount" class="form-control" />
+                            </td>
+                            <td>
+                                <input type="text" id="txtPercent" class="form-control" />
+                            </td>
+                            <td>
+                                <input type="text" id="txtAngle" class="form-control" />
+                            </td>
+                            <td>
+                                <a href="javascript:void(0);" class="dataOk" data-pid="0">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+<script>
+    $(function () {
+
+        $('.dataEdit').on('click', function (e) {
+            e.preventDefault();
+
+            var tr = $(this).parents('tr')[0];
+
+            $(tr).find('td > label').hide();
+            $(tr).find('td > input').show();
+
+            $(tr).find('td > ._Div_dataEdit').hide();
+            $(tr).find('td > ._Div_dataOK').show();
+        });
+
+        $('.dataUndo').on('click', function (e) {
+            e.preventDefault();
+
+            var tr = $(this).parents('tr')[0];
+            $(tr).find('td > input').hide();
+            $(tr).find('td > label').show();
+
+            $(tr).find('td > ._Div_dataOK').hide();
+            $(tr).find('td > ._Div_dataEdit').show();
+        });
+
+        $('.dataOk').on('click', function (e) {
+            e.preventDefault();
+            var tr = $(this).parents('tr');
+            var data = {
+                Id: $(this).data('pid'),
+                Name: tr.find('#txtName').val(),
+                Detail: tr.find('#txtDetail').val(),
+                Count: tr.find('#txtCount').val(),
+                Percent: tr.find('#txtPercent').val(),
+                Angle: tr.find('#txtAngle').val()
+            };
+
+            $.post('@Url.Action("EditPrize")', data,
+                function (view) {
+                    $('#_Div_roulette_Edit').parent().html(view);
+                });
+        });
+
+        $('.dataRemove').on('click', function (e) {
+            e.preventDefault();
+
+            var row = $(this).parents('tr')[0];
+            var url = $(this).attr('href');
+            $.post(url, {},
+                function (data) {
+                    if (data.success) {
+                        $(row).remove();
+                    }
+                    else {
+                        alert(data.msg);
+                    }
+                })
+        });
+
+    })
+    </script>
+}

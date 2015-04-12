@@ -1,0 +1,40 @@
+﻿@model LuckyDraw.Models.Prize
+
+<div style="float:left; width:120px;"><img src="~/Content/Images/love.png"></div>
+<div style="float:right; width:320px;">
+    <h1 style="font-family:'微软雅黑'; font-size:1.8em; color:#f00; margin-bottom:5px;margin-top:0px;">恭喜您获得:@Model.Name；</h1>
+    <p style="font-size:12px; color:#999;">奖品：@Model.Detail</p>
+    <p>输入姓名和地址领奖：</p>
+    <div class="form-group">
+        <div class="col-md-4">
+            <input type="text" id="txtName" name="Name" placeholder="姓名" class="form-control" />
+        </div>
+        <div class="col-md-8">
+            <input type="text" id="txtAddress" name="Address" placeholder="地址" class="form-control" />
+        </div>
+
+    </div>
+    <p style="margin-top:15px;">
+        <a href="javascript:void(0);" id="btnReceive"
+           style="width:119px; display:block; overflow:hidden; line-height:500px;height:42px; background:url(Content/Images/but.png)">
+        </a>
+        <script>
+            $(function () {
+                $('#btnReceive').on('click', function (e) {
+                    e.preventDefault();
+                    if ($('#txtName').val() == '' || $('#txtAddress').val() == '') {
+                        alert('请填写完整的姓名和地址，方便我们把奖品快递到您手中！');
+                        return false;
+                    }
+                    
+                    $.post('@Url.Action("ReceivePrize")',
+                        { Name: $('#txtName').val(), Address: $('#txtAddress').val(), Ticket:'@(ViewBag.Ticket)' },
+                        function () {
+                            $('#resultBox').fadeOut();
+                            $('#feedbackBox').show();
+                        })
+                });
+            })
+        </script>
+    </p>
+</div>

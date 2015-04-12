@@ -1,0 +1,120 @@
+﻿@model IList<LuckyDraw.Models.Manu>
+
+<style>
+    .rowEdit {
+        display: none;
+    }
+
+    .toolBtn a {
+        display: none;
+    }
+</style>
+<div class="_Div_Rules">
+    <div class="form-horizontal">
+        @foreach (var i in Model)
+        {
+            <div class="row">
+                <div class="rowShow">
+                    <div class="col-md-1">@i.Order</div>
+                    <div class="col-md-9">@i.Value</div>
+                    <div class="col-md-2 toolBtn">
+                        <a href="javascript:void(0);" class="btnEdit">
+                            <span class="glyphicon glyphicon-edit"></span>
+                        </a>
+                        <a href="@Url.Action("DeleteRules", new { id=i.Id })" class="btnRemove">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="rowEdit">
+                    <form name="_Form_Rules_Edit" action="@Url.Action("EditRules")" method="Post">
+                        <input type="hidden" name="Id" value="@i.Id" />
+                        <div class="col-md-1">
+                            <input name="Order" class="form-control" value="@i.Order" />
+                        </div>
+                        <div class="col-md-9">
+                            <input name="Value" class="form-control" value="@i.Value" />
+                        </div>
+                        <div class="col-md-2">
+                            <a href="javascript:void(0);" class="btnOk">
+                                <span class="glyphicon glyphicon-ok"></span>
+                            </a>
+                            <a href="javascript:void(0);" class="btnUndo">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        }
+
+        <div class="row rowAdd">
+            <form name="_Form_Rules_Add" action="@Url.Action("EditRules")" method="Post">
+                <input type="hidden" name="Id" value="0" />
+                <div class="col-md-1">
+                    <input name="Order" class="form-control" placeholder="序号" />
+                </div>
+                <div class="col-md-9">
+                    <input name="Value" class="form-control" placeholder="内容" />
+                </div>
+                <div class="col-md-2">
+                    <a href="javascript:void(0);" class="btnOk">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('.rowShow').on('mouseover', function () {
+            $(this).find('.toolBtn a').show();
+        }).on('mouseout', function () {
+            $(this).find('.toolBtn a').hide();
+        });
+
+        $('.toolBtn .btnEdit').on('click', function (e) {
+            e.preventDefault();
+            var show = $(this).parents('.rowShow');
+            var edit = show.next();
+
+            show.hide();
+            edit.show();
+        });
+
+        $('.btnUndo').on('click', function (e) {
+            e.preventDefault();
+            var edit = $(this).parents('.rowEdit');
+            var show = edit.prev();
+
+            show.show();
+            edit.hide();
+        });
+
+        $('.btnOk').on('click', function (e) {
+            e.preventDefault();
+
+            var form = $(this).parents('form');
+            form.ajaxSubmit({
+                success: function (view) {
+                    console.info($('#_Div_Rules').parent());
+                    $('._Div_Rules').parent().html(view);
+                }
+            })
+        });
+
+        $('.btnRemove').on('click', function (e) {
+            e.preventDefault();
+            var row = $(this).parents('.row')[0];
+            var url = $(this).attr('href');
+            
+            $.post(url, {},
+                function (data) {
+                    if (data.success) {
+                        $(row).remove();
+                    }
+                });
+        })
+    })
+</script>

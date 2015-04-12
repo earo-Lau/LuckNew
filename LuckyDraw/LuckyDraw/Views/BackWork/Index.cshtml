@@ -1,0 +1,138 @@
+﻿@model LuckyDraw.Models.HomeViewModel
+@{
+    ViewBag.Title = "抽奖后台";
+}
+<style>
+    ._Div_Edit {
+        display: none;
+    }
+
+    ._Div_Front {
+        display: block;
+    }
+
+    ._Div_Wrap.edit ._Div_Edit {
+        display: block;
+    }
+
+    ._Div_Wrap.edit ._Div_Front {
+        display: none;
+    }
+</style>
+
+<div class="headImg _Div_Wrap col-md-12">
+    <div style="display:block;">
+        <div class="_Div_Front">
+            <img src="@Model.HeadImg" />
+            <div style="position:absolute; top:0; right:15px;">
+                <button class="btn btn-default btn-primary btnEditDiv">
+                    修改
+                </button>
+            </div>
+        </div>
+        <div class="_Div_Edit row">
+            <form id="_Form_HeadImg" name="_Form_HeadImg" action="@Url.Action("UploadHeadImg")" method="POST">
+                <div class="col-md-8">
+                    <input id="HeadImg" name="HeadImg" type="file" class="form-control" style="background:#eee; border:none;" />
+                </div>
+                <div class="col-md-4">
+                    <input type="submit" class="btn btn-primary" value="上传" />
+                    <input type="button" class="btn btn-default btn-cancel" value="取消" />
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</div>
+
+<div class="row">
+    <div class="col-md-6 _Div_Wrap">
+        <div style="display:block;">
+            <div class="_Div_Front">
+                <video id="vShow" src="@Model.VideoSrc"></video>
+                <div style="position:absolute; top:0; right:15px;">
+                    <button class="btn btn-default btn-primary btnEditDiv">
+                        修改
+                    </button>
+                </div>
+            </div>
+            <div class="_Div_Edit row">
+                <form id="_Form_Video" name="_Form_Video" action="@Url.Action("UploadVideo")" method="POST">
+                    <div class="col-md-8">
+                        <input type="text" placeholder="请输入视频地址" name="VideoSrc" class="form-control" />
+                    </div>
+                    <div class="col-md-4">
+                        <input type="submit" class="btn btn-primary" value="修改" />
+                        <input type="button" class="btn btn-default btn-cancel" value="取消" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        @{Html.Action("DrawResult", "Home", new { num = 20 });}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        @Html.Partial("_DrawRoulette", Model.Prizes, this.ViewData)
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        @{Html.RenderPartial("_DrawRules", Model.DrawRulesBack);}
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery.form-3.51.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.btnEditDiv').on('click', function (e) {
+                e.preventDefault();
+                
+                $(this).parents('._Div_Wrap').addClass('edit');
+            });
+
+            $('.btn-cancel').on('click', function (e) {
+                e.preventDefault();
+
+                $(this).parents('._Div_Wrap').removeClass('edit');
+            });
+
+            $('#_Form_HeadImg').submit(function (e) {
+                e.preventDefault();
+                var that = $(this);
+                $(this).ajaxSubmit({
+                    success: function (data) {
+                        if (data.success) {
+                            that.parents('._Div_Wrap').find('._Div_Front > img').attr('src', data.result);
+
+                            that.parents('._Div_Wrap').removeClass('edit');
+                        }
+                        else {
+                            alert(data.msg);
+                        }
+                    }
+                })
+            });
+
+            $('#_Form_Video').submit(function (e) {
+                e.preventDefault();
+                var that = $(this);
+                $(this).ajaxSubmit({
+                    success: function (data) {
+                        if (data.success) {
+                            that.parents('._Div_Wrap').find('._Div_Front > video').attr('src', data.result);
+
+                            that.parents('._Div_Wrap').removeClass('edit');
+                        }
+                        else {
+                            alert(data.msg);
+                        }
+                    }
+                })
+            });
+        })
+    </script>
+}

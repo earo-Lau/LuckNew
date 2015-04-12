@@ -1,0 +1,176 @@
+﻿#_Div_roulette {
+    text-align: center;
+}
+
+.ly-plate {
+    position: relative;
+    height:500px;
+    background:url(Images/Roulette-bg.png) no-repeat center center;
+    background-size: contain;
+    bottom:-100px;
+    /*float: left;*/
+}
+
+.rotate-bg {
+    width: 370px;
+    height: 370px;
+    background: url(Images/ly-plate.png) no-repeat scroll 0 0 transparent;
+    background-size: contain;
+    position: absolute;
+    top: 45px;
+    left: 30px;
+}
+
+.ly-plate div.lottery-star {
+    width: 180px;
+    height: 180px;
+    position: absolute;
+    top: 140px;
+    left: 127px;
+    /*text-indent:-999em;
+		overflow:hidden;
+		background:url(rotate-static.png);
+		-webkit-transform:rotate(0deg);*/
+    outline: none;
+}
+
+    .ly-plate div.lottery-star #lotteryBtn {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width:180px;
+        *left: -107px;
+    }
+
+    @media(max-width:1000px){
+        
+.ly-plate {
+    margin-top:20px;
+    bottom:auto;
+    /*float: left;*/
+}
+
+.rotate-bg {
+    width: 450px;
+    height: 450px;
+    background: url(Images/ly-plate.png) no-repeat scroll 0 0 transparent;
+    background-size: contain;
+    position: absolute;
+    top: 2px;
+    left: 110px;
+}
+
+.ly-plate div.lottery-star {
+    width: 230px;
+    height: 230px;
+    position: absolute;
+    top: 110px;
+    left: 220px;
+    /*text-indent:-999em;
+		overflow:hidden;
+		background:url(rotate-static.png);
+		-webkit-transform:rotate(0deg);*/
+    outline: none;
+}
+
+    .ly-plate div.lottery-star #lotteryBtn {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width:230px;
+        *left: -107px;
+    }
+
+    }
+
+@media(min-width:320px) and (max-width:620px) {
+
+    .ly-plate {
+        position: relative;
+        width: 220px;
+        height: 220px;
+        margin: 20px auto;
+        /*float: left;*/
+    }
+
+    .rotate-bg {
+        width: 220px;
+        height: 220px;
+        top: 0;
+        left: 0;
+    }
+
+    .ly-plate div.lottery-star {
+        width: 100px;
+        height: 100px;
+        top: 60px;
+        left: 60px;
+    }
+
+        .ly-plate div.lottery-star #lotteryBtn {
+            width:100px;
+            top: 0;
+            left: 0;
+        }
+}
+
+@media (max-width:320px) {
+
+    .ly-plate {
+        width: 210px;
+        height: 210px;
+        margin: 20px auto;
+        /*float: left;*/
+    }
+
+    .rotate-bg {
+        width: 210px;
+        height: 210px;
+        top: 0;
+        left: 0;
+    }
+
+    .ly-plate div.lottery-star {
+        width: 100px;
+        height: 100px;
+        top: 55px;
+        left: 55px;
+        /*text-indent:-999em;
+		overflow:hidden;
+		background:url(rotate-static.png);
+		-webkit-transform:rotate(0deg);*/
+        outline: none;
+    }
+
+        .ly-plate div.lottery-star #lotteryBtn {
+            width:100px;
+            top: 0;
+            left: 0;
+            *left: -107px;
+        }
+}
+
+.dst {
+    width: 480px;
+    height: 250px;
+    background: #fff;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    margin: -100px 0 0 -255px;
+    display: none;
+    padding: 20px 15px 15px 15px;
+    text-align: left;
+    border: solid 2px #ffd889;
+    box-shadow: 0 0 15px #ce9d39;
+    background: #fffad1;
+    z-index: 9999;
+}
+
+    .dst.dst-sm {
+        width: 320px;
+        height: 200px;
+        left: 58%;
+    }

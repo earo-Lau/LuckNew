@@ -1,0 +1,501 @@
+﻿
+/*--------Video------------*/
+.videoMedia {
+    background: url(Images/videoborder.png) no-repeat;
+    background-size: contain;
+    margin: 0 auto;
+    width: 80%;
+}
+
+    .videoMedia video {
+        width: 370px;
+        height: 220px;
+        margin: 22px;
+    }
+
+.ActivityInfo {
+    color: #ed2d28;
+}
+
+    .ActivityInfo h2 {
+        font-family: 'Microsoft YaHei' 'Microsoft YaHei UI' 'Yahei Mono' Arial;
+        font-size: 35px;
+        font-weight: bolder;
+        margin-top: 10px;
+    }
+
+    .ActivityInfo p {
+        font-size: 24px;
+    }
+
+, ActivityInfo p:last-child {
+    margin-left: 110px;
+}
+
+.ActivityInfo .title {
+    margin-bottom: 20px;
+}
+
+
+.ActivityInfo p img {
+    width: 130px;
+    margin-left: 10px;
+}
+
+.content-block {
+    margin-bottom: 20px;
+}
+
+/*PrizeList*/
+.PrizeList {
+    margin: 10px 0;
+}
+
+    .PrizeList ul li .name {
+        background: #f02507;
+        color: #ffffff;
+        font-family: 'Microsoft YaHei' 'Microsoft YaHei UI' Arial;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: right;
+        padding-left: 5px;
+    }
+
+    .PrizeList .pl-left {
+        background: #fff6bd;
+        text-align: left;
+        padding-left: 0;
+    }
+
+    .PrizeList ul {
+        margin: 0;
+        padding: 0;
+    }
+
+        .PrizeList ul li {
+            padding: 0;
+            line-height: 20px;
+        }
+
+            .PrizeList ul li .detail {
+                color: #f02507;
+                font-size: 16px;
+            }
+
+    .PrizeList .pl-right {
+        padding: 0;
+    }
+
+        .PrizeList .pl-right img {
+            width: 100%;
+        }
+
+/*Rules*/
+.Rules {
+    margin: 10px 0;
+}
+
+    .Rules h3 {
+        color: #f02507;
+        font-family: 'Microsoft YaHei' 'Microsoft YaHei UI' Arial;
+        font-size: 22px;
+        font-weight: 900;
+    }
+
+    .Rules ul {
+        padding: 0;
+        margin: 0;
+    }
+
+        .Rules ul li {
+            line-height: 20px;
+            color: #f02c0e;
+            font-family: 'Microsoft YaHei' 'Microsoft YaHei UI' Arial;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+/*PrizeInfo*/
+.PrizeInfo {
+    background: url(Images/info.png) no-repeat left center #fff6bd;
+    height: 162px;
+    margin: 20px 20px 20px 0;
+}
+
+    .PrizeInfo .Info_Body {
+        margin-left: 70px;
+    }
+
+        .PrizeInfo .Info_Body ul {
+            margin: 0;
+            padding: 0;
+        }
+
+            .PrizeInfo .Info_Body li {
+                font-size: 18px;
+            }
+
+                .PrizeInfo .Info_Body li .prize {
+                    color: #f02c0e;
+                    margin: 0 5px;
+                }
+
+                .PrizeInfo .Info_Body li .phone {
+                    margin: 0 5px;
+                }
+
+/*Godness*/
+.Godness {
+    position: relative;
+    padding: 20px 50px;
+}
+
+    .Godness img {
+        width: 100%;
+    }
+
+    .Godness .intro {
+        background: #ffdd9d;
+        position: absolute;
+        width: 420px;
+        left: 50%;
+        margin-left: -210px;
+        bottom: 30px;
+        padding: 20px;
+    }
+
+        .Godness .intro p {
+            line-height: 30px;
+            font-size: 20px;
+        }
+
+/*BeautiChat*/
+.BeautiChat {
+}
+
+.step1 {
+    margin-top: 30px;
+    float: left;
+}
+    /*
+.step1 .bc_left img{
+    width:85%;
+    float:left;
+    margin-bottom:10px;
+}
+
+.step1 .bc_left p{
+    clear:left;
+    color:#cc1a1a;
+    font-size:24px;
+    width:80%;
+    margin:10px auto;
+    line-height:40px;
+    text-align:left;
+}
+.step1 .bc_right img{
+    width:40%;
+    float:left;
+}*/
+
+    .step1 .title_img {
+        width: 85%;
+        margin-left: 30px;
+        float: left;
+        margin-bottom: 10px;
+    }
+
+    .step1 .step_text {
+        clear: left;
+        color: #cc1a1a;
+        font-size: 24px;
+        margin-left: 14%;
+        width: 75%;
+        line-height: 40px;
+        text-align: left;
+    }
+
+        .step1 .step_text img {
+            width: 50%;
+            float: right;
+        }
+
+.step2 {
+    float: left;
+}
+
+    .step2 .title_img {
+        width: 85%;
+        margin-left: 30px;
+        float: right;
+        margin-bottom: 10px;
+    }
+
+    .step2 .step_text {
+        clear: left;
+        color: #cc1a1a;
+        font-size: 24px;
+        margin-left: 14%;
+        width: 75%;
+        line-height: 40px;
+        text-align: left;
+    }
+
+        .step2 .step_text img {
+            width: 50%;
+            float: left;
+        }
+
+/*.step2 .bc_left img{
+    width:45%;
+    float:left;
+}
+
+.step2 .bc_right p{
+    clear:left;
+    color:#cc1a1a;
+    font-size:24px;
+    width:80%;
+    line-height:40px;
+    text-align:left;
+}
+.step2 .bc_right img{
+    width:85%;
+    float:left;
+    margin-bottom:10px;
+    margin-left:-60px;
+}*/
+
+
+.step3 {
+    float: left;
+    margin-top: 30px;
+}
+
+    .step3 .title_img {
+        width: 85%;
+        margin-left: 30px;
+        float: left;
+        margin-bottom: 10px;
+    }
+
+    .step3 .step_text {
+        clear: left;
+        color: #cc1a1a;
+        font-size: 24px;
+        margin-left: 14%;
+        width: 75%;
+        line-height: 40px;
+        text-align: left;
+    }
+
+        .step3 .step_text img {
+            width: 50%;
+            float: right;
+        }
+
+@media(max-width:1000px) {
+    .videoMedia {
+        background: url(Images/videoborder.png) no-repeat;
+        background-size: contain;
+        margin: 0 auto;
+        width: 420px;
+    }
+
+        .videoMedia video {
+            width: 370px;
+            height: 220px;
+            margin: 22px;
+        }
+
+    .ActivityInfo {
+        width: 420px;
+        margin: 0 auto;
+    }
+    /*Rules*/
+    .PrizeList, .Rules {
+        margin: 10px 20px;
+    }
+
+    .PrizeInfo {
+        background: url(Images/info.png) no-repeat left center #fff6bd;
+        height: 162px;
+        margin: 20px;
+    }
+
+    .Godness .intro {
+        background: #ffdd9d;
+        position: absolute;
+        width: 320px;
+        left: 50%;
+        margin-left: -160px;
+        bottom: 30px;
+        padding: 10px;
+    }
+
+        .Godness .intro p {
+            line-height: 20px;
+            font-size: 16px;
+        }
+
+    .step2 .title_img {
+        float: none;
+    }
+}
+
+
+@media(max-width:600px) {
+    .videoMedia {
+        background: url(Images/videoborder.png) no-repeat;
+        background-size: contain;
+        margin: 0 auto;
+        width: 250px;
+    }
+
+        .videoMedia video {
+            width: 210px;
+            height: 120px;
+            margin: 22px;
+        }
+
+    .ActivityInfo {
+        width: 250px;
+        margin: 0 auto;
+    }
+
+        .ActivityInfo h2 {
+            font-family: 'Microsoft YaHei' 'Microsoft YaHei UI' 'Yahei Mono' Arial;
+            font-size: 20px;
+            font-weight: bolder;
+            margin-top: 10px;
+        }
+
+        .ActivityInfo p {
+            font-size: 16px;
+        }
+
+            .ActivityInfo p img {
+                margin-left: 70px;
+            }
+
+            .ActivityInfo p:last-child {
+                margin-left: 70px;
+            }
+
+    /*Rules*/
+    .PrizeList, .Rules {
+        margin: 10px 20px;
+    }
+
+        .PrizeList ul li .name {
+            font-size: 14px;
+        }
+
+        .PrizeList ul li .detail {
+            color: #f02507;
+            font-size: 12px;
+        }
+
+
+        .Rules h3 {
+            font-size: 16px;
+            font-weight: 900;
+        }
+
+        .Rules ul li {
+            line-height: 16px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+    .PrizeInfo {
+        background: url(Images/info.png) no-repeat left center #fff6bd;
+        background-size: contain;
+        height: 110px;
+        margin: 20px;
+    }
+
+        .PrizeInfo .Info_Body {
+            margin-left: 45px;
+        }
+
+            .PrizeInfo .Info_Body ul li {
+                font-size: 10px;
+            }
+
+    .Godness {
+        padding: 10px 20px;
+    }
+
+        .Godness .intro {
+            background: #ffdd9d;
+            position: relative;
+            width: auto;
+            left: auto;
+            margin-left: auto;
+            bottom: auto;
+            padding: 0px 10px;
+        }
+
+            .Godness .intro p {
+                line-height: 20px;
+                font-size: 12px;
+                margin-bottom: 0;
+            }
+
+    .step2 .title_img {
+        float: none;
+    }
+
+    .step1 {
+        margin-top: 15px;
+    }
+
+        .step1 .step_text {
+            font-size: 13px;
+            margin-left: 10%;
+            width: 85%;
+            line-height: 20px;
+        }
+
+    .step2 .step_text {
+        font-size: 13px;
+        margin-left: 10%;
+        width: 85%;
+        line-height: 20px;
+    }
+
+    .step3 .step_text {
+        font-size: 13px;
+        margin-left: 10%;
+        width: 85%;
+        line-height: 20px;
+    }
+}
+
+
+@media(max-width:320px) {
+    .ActivityInfo {
+        width: 200px;
+        margin: 0 auto;
+    }
+
+        .ActivityInfo h2 {
+            font-family: 'Microsoft YaHei' 'Microsoft YaHei UI' 'Yahei Mono' Arial;
+            font-size: 16px;
+            font-weight: bolder;
+            margin-top: 10px;
+        }
+
+        .ActivityInfo p {
+            font-size: 14px;
+        }
+
+            .ActivityInfo p img {
+                margin-left: 60px;
+            }
+
+            .ActivityInfo p:last-child {
+                margin-left: 60px;
+            }
+}
