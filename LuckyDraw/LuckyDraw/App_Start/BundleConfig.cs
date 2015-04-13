@@ -33,6 +33,8 @@ namespace LuckyDraw
                       "~/Scripts/js/templatemo_script.js"));
 
             bundles.Add(new StyleBundle("~/Content/css/DashBroad").Include(
+                "~/Content/csss/font-awesome.min.css",
+                "~/Content/csss/bootstrap.min.css",
                 "~/Content/csss/templatemo_main.css"));
         }
     }

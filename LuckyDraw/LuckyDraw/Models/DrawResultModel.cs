@@ -7,7 +7,7 @@ namespace LuckyDraw.Models
 {
     public class DrawResultModel
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public DateTime AddTime { get; set; }
         public Member Member { get; set; }
         public Prize Prize { get; set; }

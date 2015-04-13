@@ -1,5 +1,8 @@
 ﻿
 <div id="memberForm" class="dst dst-sm">
+    <a class="btnClose" href="javascript:void(0);">
+        <span class="glyphicon glyphicon-remove"></span>
+    </a>
     <form name="memberForm" method="Post" class="form-horizontal">
         <div class="form-group row">
             <label for="txtMobie" class="col-md-12">请先输入手机号码，方便领奖通知：</label>
@@ -16,30 +19,38 @@
         </div>
     </form>
     <script>
-        $('#btnDraw').on('click', function (e) {
-            if ($('#txtMobile').val() == '') {
-                alert('请输入手机号码！');
-                return false;
-            }
-            if (!/^([0-9]{11})$/.test($('#txtMobile').val())) {
-                alert('输入的手机号码格式不正确，请修正后再抽奖。');
-                return false;
-            }
-            $.getJSON('@Url.Action("Draw")',
-                { Mobile: $('#txtMobile').val() },
-                function (data) {
-                    if (data.result) {
-                        $('#memberForm').fadeOut();
-                        //$('#ticket').val(data.ticket);
-                        console.info(data.ticket);
-                        rotateFunc(data.ticket, data.prize.Angle);
-                    }
-                    else {
-                        alert(data.msg);
-                        return false;
-                    }
-                })
-        });
+        $(function () {
+
+            $('#btnDraw').on('click', function (e) {
+                if ($('#txtMobile').val() == '') {
+                    alert('请输入手机号码！');
+                    return false;
+                }
+                if (!/^([0-9]{11})$/.test($('#txtMobile').val())) {
+                    alert('输入的手机号码格式不正确，请修正后再抽奖。');
+                    return false;
+                }
+                $.getJSON('@Url.Action("Draw")',
+                    { Mobile: $('#txtMobile').val() },
+                    function (data) {
+                        if (data.result) {
+                            $('#memberForm').fadeOut();
+                            //$('#ticket').val(data.ticket);
+                            console.info(data.ticket);
+                            rotateFunc(data.ticket, data.prize.Angle);
+                        }
+                        else {
+                            alert(data.msg);
+                            return false;
+                        }
+                    })
+            });
+
+            $('#memberForm .btnClose').on('click', function () {
+                $('#memberForm').fadeOut();
+            });
+        })
+
         var rotateFunc = function (ticket, angle) {  //awards:奖项，angle:奖项对应的角度
             $('#lotteryBtn').stopRotate();
             $("#lotteryBtn").rotate({

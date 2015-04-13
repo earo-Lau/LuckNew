@@ -5,9 +5,10 @@
     background-size: contain;
     margin: 0 auto;
     width: 80%;
+    behavior: url(ie-css3.htc); 
 }
 
-    .videoMedia video {
+    .videoMedia video, .videoMedia iframe {
         width: 370px;
         height: 220px;
         margin: 22px;
@@ -28,19 +29,19 @@
         font-size: 24px;
     }
 
-, ActivityInfo p:last-child {
-    margin-left: 110px;
-}
+        /*.ActivityInfo p:last-child {
+            margin-left: 110px;
+        }*/
 
-.ActivityInfo .title {
-    margin-bottom: 20px;
-}
+    .ActivityInfo .title {
+        margin-bottom: 20px;
+    }
 
 
-.ActivityInfo p img {
-    width: 130px;
-    margin-left: 10px;
-}
+    .ActivityInfo p img {
+        width: 130px;
+        margin-left: 10px;
+    }
 
 .content-block {
     margin-bottom: 20px;
@@ -131,18 +132,18 @@
             padding: 0;
         }
 
-            .PrizeInfo .Info_Body li {
-                font-size: 18px;
+        .PrizeInfo .Info_Body li {
+            font-size: 18px;
+        }
+
+            .PrizeInfo .Info_Body li .prize {
+                color: #f02c0e;
+                margin: 0 5px;
             }
 
-                .PrizeInfo .Info_Body li .prize {
-                    color: #f02c0e;
-                    margin: 0 5px;
-                }
-
-                .PrizeInfo .Info_Body li .phone {
-                    margin: 0 5px;
-                }
+            .PrizeInfo .Info_Body li .phone {
+                margin: 0 5px;
+            }
 
 /*Godness*/
 .Godness {
@@ -161,7 +162,7 @@
         left: 50%;
         margin-left: -210px;
         bottom: 30px;
-        padding: 20px;
+        padding: 13px 20px;
     }
 
         .Godness .intro p {
@@ -218,6 +219,8 @@
         .step1 .step_text img {
             width: 50%;
             float: right;
+            position:relative;
+            top:-60px;
         }
 
 .step2 {
@@ -244,6 +247,8 @@
         .step2 .step_text img {
             width: 50%;
             float: left;
+            position:relative;
+            top:-70px;
         }
 
 /*.step2 .bc_left img{
@@ -292,6 +297,8 @@
         .step3 .step_text img {
             width: 50%;
             float: right;
+            position:relative;
+            top:-50px;
         }
 
 @media(max-width:1000px) {
@@ -300,9 +307,10 @@
         background-size: contain;
         margin: 0 auto;
         width: 420px;
+        behavior: url(ie-css3.htc); 
     }
 
-        .videoMedia video {
+        .videoMedia video, .videoMedia iframe {
             width: 370px;
             height: 220px;
             margin: 22px;
@@ -337,10 +345,18 @@
             line-height: 20px;
             font-size: 16px;
         }
-
+        .step1 .step_text img{
+            top:auto;
+        }
     .step2 .title_img {
         float: none;
     }
+        .step2 .step_text img{
+            top:auto;
+        }
+        .step3 .step_text img{
+            top:auto;
+        }
 }
 
 
@@ -352,7 +368,7 @@
         width: 250px;
     }
 
-        .videoMedia video {
+        .videoMedia video, .videoMedia iframe {
             width: 210px;
             height: 120px;
             margin: 22px;
@@ -378,9 +394,9 @@
                 margin-left: 70px;
             }
 
-            .ActivityInfo p:last-child {
+            /*.ActivityInfo p:last-child {
                 margin-left: 70px;
-            }
+            }*/
 
     /*Rules*/
     .PrizeList, .Rules {
@@ -495,7 +511,7 @@
                 margin-left: 60px;
             }
 
-            .ActivityInfo p:last-child {
+            /*.ActivityInfo p:last-child {
                 margin-left: 60px;
-            }
+            }*/
 }

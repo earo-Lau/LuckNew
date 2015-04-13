@@ -55,17 +55,35 @@ namespace LuckyDraw.Controllers
             }
 
             var _prize = _db.Prizes.Find(_mp.PrizeID);
-            if (_prize.Name == "未中奖")
+            if (_prize != null)
             {
-                //未中奖时返回的视图
-                return PartialView("~/Views/Home/DstBox/_Thank.cshtml");
-            }
-            else
-            {
-                ViewBag.Ticket = ticket;
-                return PartialView("~/Views/Home/DstBox/_Receive.cshtml", _prize);
+                switch (_prize.Name)
+                {
+                    case "未中奖":
+                        return PartialView("~/Views/Home/DstBox/_Thank.cshtml");
+                    case "五等奖":
+                        var member = _db.Members.Find(_mp.MemberID);
+                        LogPrizeInfoAsync log = LogPrizeInfo;
+                        log.BeginInvoke(_mp, member, "", "", LogPrizeInfoCallBack, log);
+
+                        ViewBag.Prize = "50元优惠券";
+                        ViewBag.Href = "http://taoquan.taobao.com/coupon/unify_apply.htm?sellerId=821406630&activityId=8b79fc9de8bb46d8b52352bf206c8754";
+                        return PartialView("~/Views/Home/DstBox/_Cash.cshtml");
+                    case "六等奖":
+                        member = _db.Members.Find(_mp.MemberID);
+                        log = LogPrizeInfo;
+                        log.BeginInvoke(_mp, member, "", "", LogPrizeInfoCallBack, log);
+
+                        ViewBag.Prize = "20元优惠券";
+                        ViewBag.Href = "http://taoquan.taobao.com/coupon/unify_apply.htm?sellerId=821406630&activityId=f18c63a434c44466aebce3c0e27f6a74";
+                        return PartialView("~/Views/Home/DstBox/_Cash.cshtml");
+                    default:
+                        ViewBag.Ticket = ticket;
+                        return PartialView("~/Views/Home/DstBox/_Receive.cshtml", _prize);
+                }
             }
 
+            throw new Exception("抱歉，程序貌似出错了");
         }
 
         #endregion
@@ -82,10 +100,11 @@ namespace LuckyDraw.Controllers
         public JsonResult Draw(Member member)
         {
             member.IP = Request.UserHostAddress;
-            //if (CheckMember(member))
-            //{
-            //    return Json(new { result = false, msg = "您已经参加抽奖，请不要重复抽奖。" }, JsonRequestBehavior.AllowGet);
-            //}
+
+            if (CheckMember(member))
+            {
+                return Json(new { result = false, msg = "您已经参加抽奖，请不要重复抽奖。" }, JsonRequestBehavior.AllowGet);
+            }
 
 #if DEBUG
             return Json(new { result = true, prize = new Prize() { Id = 1, Name = "特等奖", Angle = 117 }, ticket = "000" }, JsonRequestBehavior.AllowGet);
@@ -108,8 +127,10 @@ namespace LuckyDraw.Controllers
         /// <returns></returns>
         protected bool CheckMember(Member member)
         {
-            var result = _db.Members.Any(x => x.Mobile.Equals(member.Mobile)
-                || x.IP.Equals(member.IP));
+            if (member.Mobile.Equals("15888889696"))
+                return true;
+
+            var result = _db.Members.Any(x => x.Mobile.Equals(member.Mobile));
 
             return result;
         }

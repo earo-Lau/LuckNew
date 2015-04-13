@@ -1,0 +1,20 @@
+﻿
+<div style="text-align:center;">
+    <a class="btnClose" href="javascript:void(0);">
+        <span class="glyphicon glyphicon-remove"></span>
+    </a>
+    <h2>恭喜获得@(ViewBag.Prize)</h2>
+    <a target="_blank" href="@ViewBag.Href">
+        <img src="~/Content/Images/Tmail.png" />
+    </a>
+    
+</div>
+
+<script>
+    $(function () {
+
+        $('#resultBox .btnClose').on('click', function () {
+            $('#resultBox').fadeOut();
+        })
+    })
+</script>

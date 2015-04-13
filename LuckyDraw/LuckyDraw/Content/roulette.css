@@ -4,11 +4,12 @@
 
 .ly-plate {
     position: relative;
-    height:500px;
-    background:url(Images/Roulette-bg.png) no-repeat center center;
+    height: 500px;
+    background: url(Images/Roulette-bg.png) no-repeat center center;
     background-size: contain;
-    bottom:-100px;
+    bottom: -100px;
     /*float: left;*/
+    behavior: url(ie-css3.htc);
 }
 
 .rotate-bg {
@@ -19,6 +20,12 @@
     position: absolute;
     top: 45px;
     left: 30px;
+    width: 416px\0;
+    height: 412px\0;
+    background: url(Images/ly-plate_416x412.png) no-repeat scroll 0 0 transparent \0;
+    top: 25px\0;
+    left: 10px\0;
+    behavior: url(ie-css3.htc);
 }
 
 .ly-plate div.lottery-star {
@@ -32,6 +39,7 @@
 		background:url(rotate-static.png);
 		-webkit-transform:rotate(0deg);*/
     outline: none;
+    behavior: url(ie-css3.htc);
 }
 
     .ly-plate div.lottery-star #lotteryBtn {
@@ -39,51 +47,51 @@
         position: absolute;
         top: 0;
         left: 0;
-        width:180px;
+        width: 180px;
         *left: -107px;
     }
 
-    @media(max-width:1000px){
-        
-.ly-plate {
-    margin-top:20px;
-    bottom:auto;
-    /*float: left;*/
-}
+@media(max-width:1000px) {
 
-.rotate-bg {
-    width: 450px;
-    height: 450px;
-    background: url(Images/ly-plate.png) no-repeat scroll 0 0 transparent;
-    background-size: contain;
-    position: absolute;
-    top: 2px;
-    left: 110px;
-}
+    .ly-plate {
+        margin-top: 20px;
+        bottom: auto;
+        /*float: left;*/
+    }
 
-.ly-plate div.lottery-star {
-    width: 230px;
-    height: 230px;
-    position: absolute;
-    top: 110px;
-    left: 220px;
-    /*text-indent:-999em;
+    .rotate-bg {
+        width: 450px;
+        height: 450px;
+        background: url(Images/ly-plate.png) no-repeat scroll 0 0 transparent;
+        background-size: contain;
+        position: absolute;
+        top: 2px;
+        left: 110px;
+        behavior: url(ie-css3.htc);
+    }
+
+    .ly-plate div.lottery-star {
+        width: 230px;
+        height: 230px;
+        position: absolute;
+        top: 110px;
+        left: 220px;
+        /*text-indent:-999em;
 		overflow:hidden;
 		background:url(rotate-static.png);
 		-webkit-transform:rotate(0deg);*/
-    outline: none;
+        outline: none;
+    }
+
+        .ly-plate div.lottery-star #lotteryBtn {
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 230px;
+            *left: -107px;
+        }
 }
-
-    .ly-plate div.lottery-star #lotteryBtn {
-        cursor: pointer;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width:230px;
-        *left: -107px;
-    }
-
-    }
 
 @media(min-width:320px) and (max-width:620px) {
 
@@ -110,7 +118,7 @@
     }
 
         .ly-plate div.lottery-star #lotteryBtn {
-            width:100px;
+            width: 100px;
             top: 0;
             left: 0;
         }
@@ -145,7 +153,7 @@
     }
 
         .ly-plate div.lottery-star #lotteryBtn {
-            width:100px;
+            width: 100px;
             top: 0;
             left: 0;
             *left: -107px;
@@ -157,9 +165,9 @@
     height: 250px;
     background: #fff;
     position: fixed;
-    top: 40%;
+    top: 50%;
     left: 50%;
-    margin: -100px 0 0 -255px;
+    margin: -120px 0 0 -225px;
     display: none;
     padding: 20px 15px 15px 15px;
     text-align: left;
@@ -172,5 +180,37 @@
     .dst.dst-sm {
         width: 320px;
         height: 200px;
-        left: 58%;
+        margin: -88px 0 0 -180px;
+        left: 50%;
     }
+
+
+@media(min-width:320px) and (max-width:620px) {
+    .dst {
+        width: 320px;
+        margin: -100px 0 0 -200px;
+    }
+
+        .dst.dst-sm {
+            width: 280px;
+            margin: -100px 0 0 -170px;
+        }
+}
+
+@media (max-width:320px) {
+    .dst {
+        width: 280px;
+        margin: -100px 0 0 -125px;
+    }
+
+        .dst.dst-sm {
+            width: 240px;
+            margin: -80px 0 0 -145px;
+        }
+}
+
+.dst .btnClose {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}

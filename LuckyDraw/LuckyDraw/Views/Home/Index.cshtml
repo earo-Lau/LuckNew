@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="videoMedia">
-                    <video id="vShow" src="@Model.VideoSrc"></video>
+                    <iframe width="370" height="220" frameborder=0 src="http://v.qq.com/iframe/player.html?vid=i015142042s&tiny=0&auto=0" allowfullscreen></iframe>
                 </div>
             </div>
             <div class="col-md-6">
@@ -21,7 +21,7 @@
                     <p>时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;间: 2015年4月18日 下午2：00</p>
                     <p>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;点: 上海星美影城(正大广场8层)</p>
                     <p>特别鸣谢: 韩熙品牌事业部<img src="~/Content/Images/Logo.png" /></p>
-                    <p>广州天博文化传播有限公司</p>
+                    @*<p>广州天博文化传播有限公司</p>*@
                 </div>
             </div>
         </div>
@@ -198,7 +198,6 @@
 
         Event.addEvent(window, 'load', init_Scroll);
 
-
         $(function () {
             var timeOut = function () {  //超时函数
                 $("#lotteryBtn").rotate({
@@ -221,7 +220,6 @@
             });
 
             setInterval('GetPrizeInfo', 300000);
-
         })
 
         function GetPrizeInfo(){

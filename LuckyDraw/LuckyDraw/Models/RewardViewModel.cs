@@ -14,7 +14,7 @@ namespace LuckyDraw.Models
 
     public class RewardPagerModel
     {
-        public int PageNum { get; set; }
+        public PageModel Page { get; set; }
         public List<DrawResultModel> ResultModel { get; set; }
     }
 
@@ -23,5 +23,6 @@ namespace LuckyDraw.Models
         public string MemberMobile { get; set; }
         public string MemberName { get; set; }
         public string PrizeName { get; set; }
+        public string HasReceived { get; set; }
     }
 }

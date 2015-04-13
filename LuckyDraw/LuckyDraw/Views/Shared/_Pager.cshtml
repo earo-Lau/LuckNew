@@ -1,0 +1,42 @@
+﻿@model LuckyDraw.Models.PageModel
+
+<ul class="pagination pull-right">
+    @{
+        if (Model.PageCount.Equals(1))
+        {
+            <li class="disabled"><a href="#">&laquo;</a></li>
+            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+            <li class="disabled"><a href="#">&raquo;</a></li>
+        }
+        else
+        {
+            if (Model.PageNum.Equals(1))
+            {
+                <li class="disabled"><a href="#">&laquo;</a></li>
+            }
+            else
+            {
+                <li><a data-page="@(Model.PageNum+1 )" href="#">&laquo;</a></li>
+            }
+            for (var i = 1; i <= Model.PageCount; i++)
+            {
+                if (i.Equals(Model.PageNum))
+                {
+                    <li class="active"><a data-page="@i" href="#">1<span class="sr-only">(current)</span></a></li>
+                }
+                else
+                {
+                    <li><a data-page="@i" href="#">2<span class="sr-only">(current)</span></a></li>
+                }
+            }
+            if (Model.PageNum.Equals(Model.PageCount))
+            {
+                <li class="disabled"><a href="#">&raquo;</a></li>
+            }
+            else
+            {
+                <li><a data-page="@(Model.PageNum+1 )" href="#">&raquo;</a></li>
+            }
+        }
+    }
+</ul>

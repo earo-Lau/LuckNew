@@ -169,6 +169,7 @@
     <Compile Include="Models\Member_Prize.cs">
       <DependentUpon>LuckyDrawEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PageModel.cs" />
     <Compile Include="Models\Prize.cs">
       <DependentUpon>LuckyDrawEntity.tt</DependentUpon>
     </Compile>
@@ -187,6 +188,9 @@
     <Content Include="Content\csss\templatemo_main.css" />
     <Content Include="Content\drawlist.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\ie-css3.htc" />
+    <Content Include="Content\Images\20优惠券.png" />
+    <Content Include="Content\Images\50优惠券.png" />
     <Content Include="Content\Images\a1.js" />
     <Content Include="Content\Images\bodyContent.jpg" />
     <Content Include="Content\Images\but.png" />
@@ -212,6 +216,7 @@
     <Content Include="Content\Images\Step3_lg.png" />
     <Content Include="Content\Images\Step3_Title.png" />
     <Content Include="Content\Images\title.png" />
+    <Content Include="Content\Images\Tmail.png" />
     <Content Include="Content\Images\videoborder.png" />
     <Content Include="Content\roulette.css" />
     <Content Include="Content\style.css" />
@@ -299,6 +304,8 @@
     <Content Include="Views\Home\DstBox\_Feedback.cshtml" />
     <Content Include="Views\Shared\_DashBroadLayout.cshtml" />
     <Content Include="Views\DashBroad\RewardList.cshtml" />
+    <Content Include="Views\Shared\_Pager.cshtml" />
+    <Content Include="Views\Home\DstBox\_Cash.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
