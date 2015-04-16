@@ -1,6 +1,33 @@
 ﻿@model LuckyDraw.Models.DrawResultModel[]
+@{
+    Random rand = new Random((int)DateTime.Now.Ticks);
 
-@foreach (var i in Model)
+}
+
+@for (int i = 0; i <= 2; i++)
 {
-    <li><span class="phone">@(i.Member.Mobile.Substring(0, 3) + "****"+i.Member.Mobile.Substring(6,4))</span>成功领取<span class="prize">@i.Prize.Detail</span></li>
+    <li><span class="phone">@(Model[i].Member.Mobile.Substring(0, 3) + "****" + Model[i].Member.Mobile.Substring(6, 4))</span>成功领取<span class="prize">@Model[i].Prize.Detail</span></li>
+}
+<li>
+    <span class="phone">158 + "****" + @rand.Next(9) + @rand.Next(9)+ @rand.Next(9)+ @rand.Next(9) </span>成功领取<span class="prize"></span>
+</li>
+@for (int i = 3; i <= 4; i++)
+{
+    <li><span class="phone">@(Model[i].Member.Mobile.Substring(0, 3) + "****" + Model[i].Member.Mobile.Substring(6, 4))</span>成功领取<span class="prize">@Model[i].Prize.Detail</span></li>
+}
+@for (int i = 4; i <= 7; i++)
+{
+    <li><span class="phone">@(Model[i].Member.Mobile.Substring(0, 3) + "****" + Model[i].Member.Mobile.Substring(6, 4))</span>成功领取<span class="prize">@Model[i].Prize.Detail</span></li>
+}
+@for (int i = 7; i <= 10; i++)
+{
+    <li><span class="phone">@(Model[i].Member.Mobile.Substring(0, 3) + "****" + Model[i].Member.Mobile.Substring(6, 4))</span>成功领取<span class="prize">@Model[i].Prize.Detail</span></li>
+}
+@for (int i = 10; i <= 11; i++)
+{
+    <li><span class="phone">@(Model[i].Member.Mobile.Substring(0, 3) + "****" + Model[i].Member.Mobile.Substring(6, 4))</span>成功领取<span class="prize">@Model[i].Prize.Detail</span></li>
+}
+@for (int i = 11; i <= 13; i++)
+{
+    <li><span class="phone">@(Model[i].Member.Mobile.Substring(0, 3) + "****" + Model[i].Member.Mobile.Substring(6, 4))</span>成功领取<span class="prize">@Model[i].Prize.Detail</span></li>
 }

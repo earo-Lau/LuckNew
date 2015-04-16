@@ -40,7 +40,7 @@ namespace LuckyDraw.Controllers
                             {
                                 Member = members,
                                 Prize = prize
-                            }).Where(x => x.Member != null && x.Prize != null).Take(num);
+                            }).Where(x => x.Member != null && x.Prize != null).Take(14);
 
             return PartialView(drawList.ToArray());
         }
